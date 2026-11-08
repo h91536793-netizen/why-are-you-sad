@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Be Sad 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0ec, #fce4ff, #fff0f5);
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255,255,255,0.8);
+    padding: 40px 25px;
+    width: 90%;
+    max-width: 430px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 10px 35px #e9a5c766;
+    position: relative;
+    z-index: 2;
+}
+
+.big-heart {
+    font-size: 65px;
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    color: #e66b9c;
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+p {
+    color: #98718b;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+button {
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    background: #ff9fc5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #ec72a5;
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 22px;
+    color: #e66b9c;
+    font-size: 17px;
+    min-height: 55px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: floatUp 3s linear forwards;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+.footer {
+    color: #d78baa;
+    font-size: 12px;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="big-heart">💗</div>
+
+    <h1>Why Are You Sad?</h1>
+
+    <p>
+        Hey you! 🥺<br>
+        Why are you sad? Don't be sad, okay?
+        You deserve happiness, beautiful smiles
+        and all the love in this world. 💕
+        <br><br>
+        Remember, someone is always wishing
+        to see you happy. 🌷
+    </p>
+
+    <div class="buttons">
+
+        <button onclick="showHearts()">
+            💗 Click Here
+        </button>
+
+        <button onclick="giveHug()">
+            🧸 You Need a Hug
+        </button>
+
+        <button onclick="surprise()">
+            ✨ One More Surprise
+        </button>
+
+    </div>
+
+    <div id="message">
+        A little smile, please? 🥹💕
+    </div>
+
+    <div class="footer">
+        Made with lots of love 💌
+    </div>
+
+</div>
+
+<script>
+
+function showHearts() {
+    document.getElementById("message").innerHTML =
+    "See! All these hearts are for you! 💗💕💖";
+
+    for (let i = 0; i < 35; i++) {
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ["💗","💖","💕","❤️","💘"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }
+}
+
+function giveHug() {
+    document.getElementById("message").innerHTML =
+    "Sending you the biggest virtual hug ever! 🫂💕<br>" +
+    "Imagine me hugging you right now!";
+}
+
+function surprise() {
+    let messages = [
+        "You are someone's favourite notification. 💌",
+        "Your smile makes the world a little brighter! 🌸",
+        "If happiness had a face, it would look like you! 🥹",
+        "You are precious. Never forget that! 💗",
+        "Sending 1000 kisses and unlimited love! 😘💕"
+    ];
+
+    let random = Math.floor(Math.random() * messages.length);
+
+    document.getElementById("message").innerHTML =
+    messages[random];
+}
+
+</script>
+
+</body>
+</html>
